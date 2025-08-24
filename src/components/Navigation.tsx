@@ -26,8 +26,8 @@ const Navigation = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-primary">
-            Varshitha A R Gowda
+          <div className="text-xl font-medium text-foreground">
+            Varshitha.Gowda
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -65,9 +65,9 @@ const Navigation = () => {
 
           <Button 
             onClick={() => window.open('#', '_blank')}
-            className="bg-primary hover:bg-primary-hover text-primary-foreground shadow-medium transition-spring"
+            className="bg-foreground hover:bg-foreground/90 text-background px-6 py-2 rounded-full font-medium transition-smooth"
           >
-            Download Resume
+            Available for Hire
           </Button>
         </div>
       </div>

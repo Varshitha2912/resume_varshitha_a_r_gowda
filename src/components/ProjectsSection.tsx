@@ -1,112 +1,92 @@
-import { ExternalLink, Github, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ExternalLink, Github } from 'lucide-react';
 
 const ProjectsSection = () => {
   const projects = [
     {
       title: "Pragvera.com",
-      description: "Professional business and services platform featuring responsive design, modern UI/UX, and seamless user experience. Built with cutting-edge web technologies.",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
-      liveLink: "https://pragvera.com",
-      githubLink: "#",
-      gradient: "from-blue-500 to-purple-600"
+      description: "Professional business platform",
+      category: "WEB DEVELOPMENT",
+      color: "bg-blue-500",
+      mockup: "/api/placeholder/300/200"
     },
     {
-      title: "Personal Portfolio Website",
-      description: "Modern, responsive portfolio showcasing skills and experience with Apple-inspired minimalist design. Features smooth animations and optimized performance.",
-      technologies: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
-      liveLink: "#",
-      githubLink: "#",
-      gradient: "from-green-500 to-teal-600"
+      title: "Data Analytics Dashboard",
+      description: "Real-time data visualization",
+      category: "DATA SCIENCE",
+      color: "bg-green-500",
+      mockup: "/api/placeholder/300/200"
     },
     {
-      title: "Photo Studio Booking Platform",
-      description: "Comprehensive online booking system with real-time scheduling, payment integration, and client management. Streamlines the entire booking process.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe API"],
-      liveLink: "#",
-      githubLink: "#",
-      gradient: "from-purple-500 to-pink-600"
+      title: "Photo Studio Booking",
+      description: "Online booking platform",
+      category: "FULL STACK",
+      color: "bg-red-500",
+      mockup: "/api/placeholder/300/200"
+    },
+    {
+      title: "ML Prediction Model",
+      description: "Machine learning insights",
+      category: "DATA SCIENCE",
+      color: "bg-gray-600",
+      mockup: "/api/placeholder/300/200"
+    },
+    {
+      title: "E-commerce Platform",
+      description: "Modern shopping experience",
+      category: "WEB DEVELOPMENT",
+      color: "bg-teal-500",
+      mockup: "/api/placeholder/300/200"
     }
   ];
 
   return (
-    <section id="projects" className="py-20 bg-background">
+    <section id="projects" className="py-20 bg-background min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my latest web development and data science projects
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {projects.map((project, index) => (
-            <Card key={index} className="group overflow-hidden shadow-medium hover:shadow-large transition-all duration-300 hover:-translate-y-2">
-              <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
-              
-              <CardHeader className="pb-4">
-                <CardTitle className="text-xl text-primary group-hover:text-accent transition-smooth">
-                  {project.title}
-                </CardTitle>
-                <CardDescription className="text-muted-foreground leading-relaxed">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-              
-              <CardContent className="space-y-6">
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span 
-                      key={techIndex}
-                      className="px-3 py-1 bg-accent-light text-accent text-sm rounded-full font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+            <div key={index} className="group cursor-pointer">
+              {/* Project Card */}
+              <div className={`${project.color} rounded-2xl p-6 aspect-[4/5] flex flex-col justify-between transition-transform hover:scale-105`}>
+                {/* Top indicators */}
+                <div className="flex justify-between items-start">
+                  <div className="w-3 h-3 bg-white/30 rounded-full"></div>
+                  <div className="w-3 h-3 bg-white/60 rounded-full"></div>
                 </div>
                 
-                {/* Project Links */}
-                <div className="flex gap-3">
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    onClick={() => window.open(project.liveLink, '_blank')}
-                    className="flex-1 hover:bg-accent hover:text-accent-foreground transition-smooth"
-                  >
-                    <Globe className="w-4 h-4 mr-2" />
-                    Live Demo
-                  </Button>
-                  
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    onClick={() => window.open(project.githubLink, '_blank')}
-                    className="flex-1 hover:bg-primary hover:text-primary-foreground transition-smooth"
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
+                {/* Mockup container */}
+                <div className="flex-1 flex items-center justify-center my-6">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 w-full max-w-[200px]">
+                    <div className="bg-white rounded-md aspect-video opacity-90"></div>
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+                
+                {/* Project info */}
+                <div className="text-white">
+                  <div className="text-xs opacity-70 mb-1">{project.category}</div>
+                  <h3 className="font-semibold text-lg mb-1">{project.title}</h3>
+                  <p className="text-sm opacity-80">{project.description}</p>
+                </div>
+              </div>
+              
+              {/* Project title below */}
+              <div className="mt-4 text-center">
+                <div className="text-xs text-muted-foreground mb-1">TITLE</div>
+                <h4 className="font-medium text-foreground">{project.title}</h4>
+              </div>
+            </div>
           ))}
         </div>
         
-        {/* Call to Action */}
+        {/* View all work button */}
         <div className="text-center mt-16">
-          <p className="text-muted-foreground mb-6">
-            Want to see more of my work or discuss a project?
-          </p>
           <Button 
+            variant="outline"
             size="lg"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-primary hover:bg-primary-hover text-primary-foreground px-8 py-4 shadow-medium transition-spring"
+            className="border-border text-foreground hover:bg-secondary px-8 py-3 rounded-full font-medium transition-smooth"
           >
-            Let's Work Together
+            View All Work
           </Button>
         </div>
       </div>

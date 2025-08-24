@@ -1,67 +1,56 @@
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-bg.jpg';
 import { ArrowDown } from 'lucide-react';
 
 const HeroSection = () => {
-  const scrollToAbout = () => {
-    const element = document.getElementById('about');
+  const scrollToProjects = () => {
+    const element = document.getElementById('projects');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center">
-      {/* Background */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <div className="absolute inset-0 bg-black/30"></div>
+    <section className="relative min-h-screen flex items-center justify-between px-6 md:px-12 py-20">
+      {/* Main Title */}
+      <div className="flex-1">
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-foreground leading-none tracking-tight">
+          DATA<br />
+          SCIENTIST &<br />
+          WEB DEVELOPER
+        </h1>
       </div>
       
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-        <div className="space-y-6">
-          <h1 className="text-5xl md:text-7xl font-bold text-white text-balance">
-            Hi, I'm <span className="text-accent">Varshitha A R Gowda</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto text-balance">
-            Aspiring Data Scientist | IT & Cloud Professional | Certified Yoga Instructor
+      {/* Description */}
+      <div className="flex-1 max-w-md ml-auto">
+        <div className="space-y-8">
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            With expertise in <strong className="text-foreground">data science</strong> and <strong className="text-foreground">web development</strong>, I build data-driven solutions and websites that look great and work even better. <strong className="text-foreground">Clean code</strong>, <strong className="text-foreground">intuitive design</strong>, and a <strong className="text-foreground">smooth user experience</strong> every time.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+          <div className="flex flex-col gap-4">
             <Button 
-              size="lg"
               onClick={() => window.open('#', '_blank')}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 text-lg shadow-large transition-spring"
+              className="bg-foreground hover:bg-foreground/90 text-background px-6 py-3 rounded-full font-medium transition-smooth w-fit"
             >
-              Download Resume
+              Available for Hire
             </Button>
             
             <Button 
               variant="outline"
-              size="lg"
-              onClick={scrollToAbout}
-              className="border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg transition-spring"
+              onClick={scrollToProjects}
+              className="border-border text-foreground hover:bg-secondary px-6 py-3 rounded-full font-medium transition-smooth w-fit"
             >
-              Learn More
+              View Work
             </Button>
           </div>
         </div>
-        
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <button onClick={scrollToAbout} className="text-white/70 hover:text-white transition-smooth">
-            <ArrowDown size={32} />
-          </button>
-        </div>
+      </div>
+      
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <button onClick={scrollToProjects} className="text-muted-foreground hover:text-foreground transition-smooth">
+          <ArrowDown size={24} />
+        </button>
       </div>
     </section>
   );
